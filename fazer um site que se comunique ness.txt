@@ -1,0 +1,28 @@
+fazer um site que se comunique nessa ordem: Mysql -> Python(ia) -> Arduino -> Sensores e Atuadores. 
+
+precisa ter:
+
+-Projeto Físico;
+
+-Doc tipo tcc;
+
+-Slides;
+
+-Apresentação.
+
+
+APRESENTAÇÃO CÓDIGO MORSE
+
+Iremos fazer um código no qual enviaremos uma frase em código morse, e uma IA irá traduzi-la em um chat no site correspondente. Utilizaremos dois botões conectados no Arduino (um para pontos e traços o outro para espaço e barra e um led que irá brilhar a cada pressionada, sinalizando que o código foi enviado ao python. O código Morse original e a frase traduzida serão enviados para o banco de dados no Mysql.
+
+-Python: IA e Arduino;
+
+-JS: Banco de dados;
+
+-Arduino IDE: Arduino;
+
+-CSS: Estilo;
+
+-HTML: layout.
+
+
