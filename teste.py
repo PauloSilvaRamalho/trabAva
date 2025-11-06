@@ -6,10 +6,10 @@ import serial
 import time
 
 #Configuração de Arduino
-# porta ="COM3"
-# baudrate = 9600
-# arduino = serial.Serial(porta,baudrate,timeout=1)
-# time.sleep(2)
+porta ="COM5"
+baudrate = 9600
+arduino = serial.Serial(porta,baudrate,timeout=1)
+time.sleep(2)
 
 
 #Configuração de Modelo
@@ -81,14 +81,16 @@ def main():
         if pergunta.lower() == "sair":
             break
 
-        # if pergunta.lower() == "ligar led":
-        #      arduino.write('1'.encode())
-        #      while True:
-        #         if arduino.in_waiting>0:
-        #             resposta = arduino.readline().decode().strip()
-        #             print(resposta)
-        #             break
-        #      continue 
+        if pergunta.lower() == "decifrar codigo morse":
+              while True:
+                if arduino.in_waiting>0:
+                    resposta = arduino.readline().decode().strip()
+                    print(resposta)
+                    pergunta = input(f"Traduza o codigo morse: {resposta}")
+                    sistema = "Traduza o codigo Morse"
+                    prompt = montar_prompt(sistema, historico, pergunta)        
+                    break
+              continue 
 
         # if pergunta.lower() == "desligar led":
         #      #arduino.write('0'.encode())
@@ -118,10 +120,6 @@ def main():
         #              print(resposta)
         #              break
         #      continue                                          
-
-
-        sistema = "Você é um assistente. Responda em portugues do Brasil, claro, direto, e no máximo 2-3 frases"
-        prompt = montar_prompt(sistema, historico, pergunta)        
         
         #Chamar modelo
         resposta = perguntar_modelo(cliente,MODELO,prompt)
